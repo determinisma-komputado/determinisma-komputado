@@ -1,0 +1,111 @@
+---
+const steps = [
+  {
+    num: "01",
+    title: "Pin the environment",
+    body: "Model weights, runtime, libraries, and hardware semantics are content-addressed and frozen. The execution environment is a reproducible artifact, not a moving target.",
+  },
+  {
+    num: "02",
+    title: "Eliminate nondeterminism",
+    body: "Floating-point operations are executed in a fixed order. Parallelism is constrained to produce identical results. No uninitialized memory, no timing-dependent branches.",
+  },
+  {
+    num: "03",
+    title: "Record the trace",
+    body: "Every layer, every activation, every decision is committed into a Merkle tree. The root hash is the fingerprint of the computation — compact, verifiable, tamper-evident.",
+  },
+  {
+    num: "04",
+    title: "Verify independently",
+    body: "Given the input, output, and trace root, a verifier replays the committed steps and checks the hash. No need to trust the operator — the math speaks for itself.",
+  },
+];
+---
+
+<section id="how" class="how">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">How It Works</span>
+      <h2>From input to verifiable output</h2>
+      <p class="section-sub">
+        Four stages turn an ordinary AI inference into a deterministic,
+        independently auditable computation.
+      </p>
+    </div>
+    <div class="steps">
+      {steps.map((s) => (
+        <div class="step">
+          <div class="step-num">{s.num}</div>
+          <div class="step-body">
+            <h3>{s.title}</h3>
+            <p>{s.body}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .how {
+    padding: 80px 0;
+    background: var(--bg-elev);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .section-head {
+    text-align: center;
+    max-width: 580px;
+    margin: 0 auto 56px;
+  }
+  .section-tag {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .section-head h2 {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+  }
+  .section-sub {
+    color: var(--text-dim);
+    font-size: 1.05rem;
+  }
+  .steps {
+    max-width: 720px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .step {
+    display: flex;
+    gap: 24px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .step:last-child { border-bottom: none; }
+  .step-num {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+    min-width: 56px;
+  }
+  .step-body h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .step-body p {
+    color: var(--text-dim);
+    font-size: 0.98rem;
+  }
+</style>

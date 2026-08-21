@@ -1,0 +1,61 @@
+---
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <svg width="28" height="28" viewBox="0 0 64 64" aria-hidden="true">
+        <circle cx="32" cy="32" r="18" fill="none" stroke="#4f9cf9" stroke-width="2.5"/>
+        <path d="M32 14 L32 32 L46 40" fill="none" stroke="#4f9cf9" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="32" cy="32" r="3.5" fill="#4f9cf9"/>
+      </svg>
+      <span>Determinisma Komputado</span>
+    </a>
+    <nav class="nav">
+      <a href="#principles">Principles</a>
+      <a href="#how">How It Works</a>
+      <a href="#verify">Verification</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10, 14, 26, 0.82);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text);
+    font-weight: 600;
+    font-size: 1.05rem;
+    text-decoration: none;
+  }
+  .logo:hover { text-decoration: none; }
+  .nav {
+    display: flex;
+    gap: 28px;
+  }
+  .nav a {
+    color: var(--text-dim);
+    font-size: 0.92rem;
+    font-weight: 500;
+  }
+  .nav a:hover { color: var(--text); text-decoration: none; }
+  @media (max-width: 640px) {
+    .nav { display: none; }
+  }
+</style>

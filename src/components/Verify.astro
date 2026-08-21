@@ -1,0 +1,166 @@
+---
+---
+
+<section id="verify" class="verify">
+  <div class="container">
+    <div class="verify-grid">
+      <div class="verify-text">
+        <span class="section-tag">Verification</span>
+        <h2>Don't trust. Verify.</h2>
+        <p>
+          Traditional AI asks you to trust the operator. Determinisma Komputado
+          asks you to verify the math. Every output comes with a compact proof
+          that an independent party can check — no GPU farm, no model weights,
+          no trust required.
+        </p>
+        <ul class="checklist">
+          <li><span class="check">✓</span> Tamper-evident Merkle traces</li>
+          <li><span class="check">✓</span> Sub-linear verification of full computations</li>
+          <li><span class="check">✓</span> Open, auditable verification protocol</li>
+          <li><span class="check">✓</span> Works with any deterministic model architecture</li>
+        </ul>
+      </div>
+      <div class="verify-visual">
+        <div class="proof-card">
+          <div class="proof-header">
+            <span class="proof-title">Verification Proof</span>
+            <span class="proof-status">VALID</span>
+          </div>
+          <div class="proof-row">
+            <span class="proof-key">Input hash</span>
+            <span class="proof-val">7f3a…c2e1</span>
+          </div>
+          <div class="proof-row">
+            <span class="proof-key">Output hash</span>
+            <span class="proof-val">a3f7…2e1d</span>
+          </div>
+          <div class="proof-row">
+            <span class="proof-key">Trace root</span>
+            <span class="proof-val">b8d4…9f0a</span>
+          </div>
+          <div class="proof-row">
+            <span class="proof-key">Steps verified</span>
+            <span class="proof-val">1,284,506</span>
+          </div>
+          <div class="proof-bar">
+            <div class="proof-bar-fill"></div>
+          </div>
+          <div class="proof-footer">All 1,284,506 steps match committed trace</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .verify {
+    padding: 80px 0;
+  }
+  .verify-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: center;
+  }
+  @media (max-width: 768px) {
+    .verify-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+  .section-tag {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .verify-text h2 {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+  .verify-text p {
+    color: var(--text-dim);
+    font-size: 1.05rem;
+    margin-bottom: 24px;
+  }
+  .checklist {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .checklist li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text);
+    font-size: 0.98rem;
+  }
+  .check {
+    color: var(--green);
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+
+  .proof-card {
+    background: #060912;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+  }
+  .proof-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .proof-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+  .proof-status {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: rgba(63, 214, 138, 0.15);
+    color: var(--green);
+    border: 1px solid rgba(63, 214, 138, 0.3);
+  }
+  .proof-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    font-size: 0.88rem;
+    border-bottom: 1px solid rgba(35, 44, 71, 0.5);
+  }
+  .proof-key { color: var(--text-dim); }
+  .proof-val {
+    font-family: "SF Mono", "Fira Code", monospace;
+    color: var(--accent);
+  }
+  .proof-bar {
+    height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+    margin: 20px 0 10px;
+    overflow: hidden;
+  }
+  .proof-bar-fill {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--green));
+    border-radius: 3px;
+  }
+  .proof-footer {
+    font-size: 0.82rem;
+    color: var(--green);
+    text-align: center;
+  }
+</style>

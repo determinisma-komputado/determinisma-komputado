@@ -1,0 +1,116 @@
+---
+const principles = [
+  {
+    icon: "🔁",
+    title: "Deterministic Execution",
+    body: "Every inference produces the exact same output for the same input. No floating-point nondeterminism, no race conditions, no hidden entropy sources. The computation is a pure function.",
+  },
+  {
+    icon: "🔍",
+    title: "Verifiable Traces",
+    body: "Each inference emits a cryptographic trace — a commitment to every intermediate step. Anyone can independently verify that the output follows from the input and the model.",
+  },
+  {
+    icon: "📜",
+    title: "Reproducible Builds",
+    body: "Model weights, runtime, and execution environment are pinned and content-addressed. Rebuild the exact same artifact years later and get byte-identical results.",
+  },
+  {
+    icon: "🧩",
+    title: "Composable & Auditable",
+    body: "Deterministic components compose into deterministic systems. Audit any sub-computation in isolation, or verify the full pipeline end-to-end.",
+  },
+  {
+    icon: "⚖️",
+    title: "Accountability by Design",
+    body: "If a model produces a harmful output, the trace shows exactly why. No black boxes, no plausible deniability — the computation history is the evidence.",
+  },
+  {
+    icon: "🌐",
+    title: "Trustless Verification",
+    body: "Third parties can verify AI outputs without trusting the operator. Verification requires only the input, output, and trace — not access to the full model.",
+  },
+];
+---
+
+<section id="principles" class="principles">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">Principles</span>
+      <h2>Six pillars of deterministic computation</h2>
+      <p class="section-sub">
+        Determinism is not a constraint — it's a foundation. These principles
+        make AI outputs as trustworthy as a mathematical proof.
+      </p>
+    </div>
+    <div class="grid">
+      {principles.map((p) => (
+        <div class="card">
+          <div class="card-icon">{p.icon}</div>
+          <h3>{p.title}</h3>
+          <p>{p.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .principles {
+    padding: 80px 0;
+    border-top: 1px solid var(--border);
+  }
+  .section-head {
+    text-align: center;
+    max-width: 580px;
+    margin: 0 auto 56px;
+  }
+  .section-tag {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .section-head h2 {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+  }
+  .section-sub {
+    color: var(--text-dim);
+    font-size: 1.05rem;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px 24px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .card:hover {
+    border-color: var(--accent-dim);
+    transform: translateY(-2px);
+  }
+  .card-icon {
+    font-size: 1.8rem;
+    margin-bottom: 14px;
+  }
+  .card h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .card p {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+  }
+</style>

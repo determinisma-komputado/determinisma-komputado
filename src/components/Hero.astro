@@ -1,163 +1,76 @@
 ---
 ---
 
-<section class="hero">
-  <div class="container hero-inner">
-    <div class="badge">
-      <span class="dot"></span>
-      Fully Deterministic · Verifiable · Reproducible
-    </div>
-    <h1>
-      Determinisma Komputado
-    </h1>
-    <p class="lead">
-      A computing paradigm where every AI inference is fully deterministic and
-      verifiable. Same input, same output — always. No hidden randomness, no
-      opaque decisions. Every step is auditable, every result reproducible.
-    </p>
-    <div class="cta-row">
-      <a href="#how" class="btn btn-primary">Explore the approach</a>
-      <a href="#verify" class="btn btn-ghost">How verification works →</a>
-    </div>
-
-    <div class="terminal">
-      <div class="terminal-bar">
-        <span class="term-dot red"></span>
-        <span class="term-dot yellow"></span>
-        <span class="term-dot green"></span>
-        <span class="term-label">determinisma verify</span>
-      </div>
-      <pre><code><span class="c-dim">$</span> determinisma run --input prompt.json --seed 0
-<span class="c-green">✓</span> inference complete — hash: <span class="c-accent">a3f7c2e1…</span>
-<span class="c-green">✓</span> deterministic: <span class="c-green">true</span>
-<span class="c-green">✓</span> reproducible across 10,000 runs
-<span class="c-dim">$</span> determinisma verify --hash a3f7c2e1…
-<span class="c-green">✓</span> output verified — matches committed trace</code></pre>
-    </div>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo" aria-label="Determinisma Komputado home">
+      <svg width="28" height="28" viewBox="0 0 64 64" aria-hidden="true">
+        <circle cx="32" cy="32" r="18" fill="none" stroke="#69a8ff" stroke-width="2.5"/>
+        <path d="M32 14 L32 32 L46 40" fill="none" stroke="#69a8ff" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="32" cy="32" r="3.5" fill="#69a8ff"/>
+      </svg>
+      <span>Determinisma Komputado</span>
+    </a>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#principles">Principles</a>
+      <a href="#how">How It Works</a>
+      <a href="#verify">Verification</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </div>
-</section>
+</header>
 
 <style>
-  .hero {
-    padding: 80px 0 64px;
-    background:
-      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(79, 156, 249, 0.12), transparent),
-      var(--bg);
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    background: rgba(7, 11, 20, 0.76);
+    border-bottom: 1px solid var(--border);
   }
-  .hero-inner {
-    text-align: center;
+
+  .header-inner {
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: space-between;
+    height: 72px;
   }
-  .badge {
+
+  .logo {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 6px 16px;
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    font-size: 0.82rem;
-    color: var(--text-dim);
-    background: var(--bg-elev);
-    margin-bottom: 28px;
-  }
-  .dot {
-    width: 7px; height: 7px;
-    border-radius: 50%;
-    background: var(--green);
-    box-shadow: 0 0 8px var(--green);
-  }
-  h1 {
-    font-size: clamp(2.4rem, 6vw, 4rem);
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    line-height: 1.1;
-    margin-bottom: 20px;
-    background: linear-gradient(135deg, #fff 30%, var(--accent) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  .lead {
-    max-width: 640px;
-    font-size: 1.12rem;
-    color: var(--text-dim);
-    margin-bottom: 36px;
-  }
-  .cta-row {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-bottom: 56px;
-  }
-  .btn {
-    padding: 12px 28px;
-    border-radius: 10px;
-    font-weight: 600;
-    font-size: 0.95rem;
-    transition: all 0.2s;
-  }
-  .btn-primary {
-    background: var(--accent);
-    color: #fff;
-  }
-  .btn-primary:hover {
-    background: #6bb0ff;
-    text-decoration: none;
-    transform: translateY(-1px);
-  }
-  .btn-ghost {
-    color: var(--text-dim);
-    border: 1px solid var(--border);
-  }
-  .btn-ghost:hover {
+    gap: 10px;
     color: var(--text);
-    border-color: var(--accent);
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: -0.02em;
     text-decoration: none;
   }
 
-  .terminal {
-    width: 100%;
-    max-width: 640px;
-    background: #060912;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    overflow: hidden;
-    text-align: left;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-  }
-  .terminal-bar {
+  .logo:hover { text-decoration: none; }
+
+  .nav {
     display: flex;
     align-items: center;
-    gap: 7px;
-    padding: 11px 14px;
-    background: #0c1120;
-    border-bottom: 1px solid var(--border);
+    gap: 28px;
   }
-  .term-dot {
-    width: 11px; height: 11px; border-radius: 50%;
-  }
-  .term-dot.red { background: #ff5f57; }
-  .term-dot.yellow { background: #febc2e; }
-  .term-dot.green { background: #28c840; }
-  .term-label {
-    margin-left: auto;
-    font-size: 0.78rem;
+
+  .nav a {
     color: var(--text-dim);
-    font-family: monospace;
+    font-size: 0.92rem;
+    font-weight: 500;
   }
-  pre {
-    padding: 18px 20px;
-    font-size: 0.84rem;
-    line-height: 1.7;
-    overflow-x: auto;
+
+  .nav a:hover {
+    color: var(--text);
+    text-decoration: none;
   }
-  code {
-    font-family: "SF Mono", "Fira Code", "Cascadia Code", monospace;
+
+  @media (max-width: 640px) {
+    .nav { display: none; }
+    .header-inner { height: 64px; }
+    .logo { font-size: 0.92rem; }
   }
-  .c-dim { color: #5a6b8c; }
-  .c-green { color: #3fd68a; }
-  .c-accent { color: #4f9cf9; }
 </style>

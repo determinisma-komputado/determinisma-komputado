@@ -20,41 +20,88 @@ const description = "Fully deterministic and verifiable AI — every inference r
 
 <style is:global>
   :root {
-    --bg: #0a0e1a;
-    --bg-elev: #121829;
-    --bg-card: #161d33;
-    --border: #232c47;
-    --text: #e8edf7;
-    --text-dim: #9aa7c4;
-    --accent: #4f9cf9;
-    --accent-dim: #2d6fd0;
-    --green: #3fd68a;
-    --max-w: 1080px;
+    --bg: #070b14;
+    --bg-elev: #0d1525;
+    --bg-card: #121d33;
+    --bg-soft: rgba(18, 29, 51, 0.72);
+    --border: rgba(148, 163, 184, 0.18);
+    --border-strong: rgba(79, 156, 249, 0.42);
+    --text: #edf5ff;
+    --text-dim: #a4b3cd;
+    --text-subtle: #7d90b3;
+    --accent: #69a8ff;
+    --accent-strong: #3d7ef6;
+    --accent-dim: #1e4c9a;
+    --green: #4fe3a1;
+    --green-soft: rgba(79, 227, 161, 0.16);
+    --shadow: rgba(5, 10, 18, 0.55);
+    --max-w: 1180px;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  html { scroll-behavior: smooth; }
+  html {
+    scroll-behavior: smooth;
+    background: var(--bg);
+  }
 
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background: var(--bg);
+    background:
+      radial-gradient(circle at top, rgba(78, 131, 255, 0.18), transparent 35%),
+      linear-gradient(180deg, #070b14 0%, #090f1a 100%);
     color: var(--text);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
 
-  a { color: var(--accent); text-decoration: none; }
+  a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.2s ease, opacity 0.2s ease;
+  }
+
   a:hover { text-decoration: underline; }
 
+  img, svg { display: block; max-width: 100%; }
+
   .container {
-    max-width: var(--max-w);
+    width: min(var(--max-w), calc(100% - 32px));
     margin: 0 auto;
-    padding: 0 24px;
+  }
+
+  .section-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+
+  .section-head {
+    text-align: center;
+    max-width: 620px;
+    margin: 0 auto 52px;
+  }
+
+  .section-head h2 {
+    font-size: clamp(1.9rem, 4vw, 2.9rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
+    margin-bottom: 14px;
+  }
+
+  .section-sub {
+    color: var(--text-dim);
+    font-size: 1.04rem;
   }
 
   ::selection {
-    background: var(--accent-dim);
+    background: rgba(105, 168, 255, 0.3);
     color: #fff;
   }
 </style>

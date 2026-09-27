@@ -1,76 +1,103 @@
 ---
+const principles = [
+  {
+    icon: "🔁",
+    title: "Deterministic Execution",
+    body: "Every inference produces the exact same output for the same input. No floating-point nondeterminism, no race conditions, no hidden entropy sources. The computation is a pure function.",
+  },
+  {
+    icon: "🔍",
+    title: "Verifiable Traces",
+    body: "Each inference emits a cryptographic trace — a commitment to every intermediate step. Anyone can independently verify that the output follows from the input and the model.",
+  },
+  {
+    icon: "📜",
+    title: "Reproducible Builds",
+    body: "Model weights, runtime, and execution environment are pinned and content-addressed. Rebuild the exact same artifact years later and get byte-identical results.",
+  },
+  {
+    icon: "🧩",
+    title: "Composable & Auditable",
+    body: "Deterministic components compose into deterministic systems. Audit any sub-computation in isolation, or verify the full pipeline end-to-end.",
+  },
+  {
+    icon: "⚖️",
+    title: "Accountability by Design",
+    body: "If a model produces a harmful output, the trace shows exactly why. No black boxes, no plausible deniability — the computation history is the evidence.",
+  },
+  {
+    icon: "🌐",
+    title: "Trustless Verification",
+    body: "Third parties can verify AI outputs without trusting the operator. Verification requires only the input, output, and trace — not access to the full model.",
+  },
+];
 ---
 
-<section id="contact" class="cta-section">
+<section id="principles" class="principles">
   <div class="container">
-    <div class="cta-box">
-      <h2>Bring determinism to your AI pipeline</h2>
-      <p>
-        Whether you're building safety-critical systems, regulatory compliance
-        tools, or simply want AI you can audit — Determinisma Komputado gives
-        you reproducibility by construction.
+    <div class="section-head">
+      <span class="section-tag">Principles</span>
+      <h2>Six pillars of deterministic computation</h2>
+      <p class="section-sub">
+        Determinism is not a constraint — it's a foundation. These principles
+        make AI outputs as trustworthy as a mathematical proof.
       </p>
-      <div class="cta-actions">
-        <a href="mailto:hello@determinisma.dev" class="btn btn-primary">Get in touch</a>
-        <a href="#principles" class="btn btn-ghost">Read the principles</a>
-      </div>
+    </div>
+
+    <div class="grid">
+      {principles.map((p) => (
+        <div class="card">
+          <div class="card-icon">{p.icon}</div>
+          <h3>{p.title}</h3>
+          <p>{p.body}</p>
+        </div>
+      ))}
     </div>
   </div>
 </section>
 
 <style>
-  .cta-section {
-    padding: 80px 0;
+  .principles {
+    padding: 86px 0;
+    border-top: 1px solid var(--border);
   }
-  .cta-box {
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 56px 32px;
-    background: var(--bg-card);
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+
+  .card {
+    background: linear-gradient(180deg, rgba(18, 29, 51, 0.95), rgba(12, 17, 27, 0.95));
     border: 1px solid var(--border);
     border-radius: 18px;
+    padding: 28px 22px;
+    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 14px 30px rgba(1, 4, 10, 0.18);
   }
-  .cta-box h2 {
-    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+
+  .card:hover {
+    border-color: var(--border-strong);
+    transform: translateY(-2px);
+    box-shadow: 0 18px 30px rgba(15, 27, 44, 0.22);
+  }
+
+  .card-icon {
+    font-size: 1.9rem;
+    margin-bottom: 14px;
+    filter: drop-shadow(0 0 12px rgba(105, 168, 255, 0.25));
+  }
+
+  .card h3 {
+    font-size: 1.15rem;
     font-weight: 700;
     letter-spacing: -0.02em;
-    margin-bottom: 14px;
+    margin-bottom: 10px;
   }
-  .cta-box p {
+
+  .card p {
     color: var(--text-dim);
-    font-size: 1.05rem;
-    margin-bottom: 32px;
-  }
-  .cta-actions {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  .btn {
-    padding: 12px 28px;
-    border-radius: 10px;
-    font-weight: 600;
-    font-size: 0.95rem;
-    transition: all 0.2s;
-  }
-  .btn-primary {
-    background: var(--accent);
-    color: #fff;
-  }
-  .btn-primary:hover {
-    background: #6bb0ff;
-    text-decoration: none;
-    transform: translateY(-1px);
-  }
-  .btn-ghost {
-    color: var(--text-dim);
-    border: 1px solid var(--border);
-  }
-  .btn-ghost:hover {
-    color: var(--text);
-    border-color: var(--accent);
-    text-decoration: none;
+    font-size: 0.96rem;
   }
 </style>
